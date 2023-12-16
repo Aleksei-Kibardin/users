@@ -24,15 +24,16 @@ import searchUsers from './components/search.vue'
 const store = useStore();
 
 async function loadUsers() {
-    const localUser = JSON. parse(localStorage.getItem('user-list'))
-    if (!localUser) { 
-      const usersFromApi = await getUsers()
-      localStorage.setItem('user-list', usersFromApi); 
-      store.commit('uploadUsers', usersFromApi);
-      console.log(store.state.users)
+    const localUserJSON = localStorage.getItem('user-list');
+    if (!localUserJSON) { 
+        const usersFromApi = await getUsers();
+        localStorage.setItem('user-list', JSON.stringify(usersFromApi)); 
+        store.commit('uploadUsers', usersFromApi);
+        console.log(store.state.users);
     } else {
+        const localUser = JSON.parse(localUserJSON);
         store.commit('uploadUsers', localUser);
-        console.log(localUser)
+        console.log(localUser);
     }
 }
 
