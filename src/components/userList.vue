@@ -7,7 +7,7 @@
       :key="t"
     >
       <div class="user-avatar">
-        <img class="avatar" :src="`/src/assets/${sex()}.png`" alt="avatar" />
+        <img class="avatar" :src="`https://github.com/Aleksei-Kibardin/users/blob/master/src/assets/${sex()}.png?raw=true`" alt="avatar" />
       </div>
       <div class="user-info_wrap">
         <div class="user-name">
