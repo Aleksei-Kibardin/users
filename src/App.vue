@@ -76,18 +76,3 @@ main {
   left: 20px;
 }
 </style>
-
-<!-- Write a SPA on Vue 2+ with a simple and functional adaptive layout.
-Use vuex for the global state, and vue-router for navigation.
-To work with styles, use CSS.
-
-The application should consist of 2 screens:
-1) A list of users
-2) A specific user's page that contains a list of albums and a list of user posts. Each album list item is a carousel with the first 5 photos from this album.
-3) Add the ability to link to a specific user's page with the parameter which page to open "album list" or "list of posts"
-
-Optionally, you can add/edit posts.
-
-You can use any libraries.
-
-The API for completing the task: https://jsonplaceholder.typicode.com/ -->
