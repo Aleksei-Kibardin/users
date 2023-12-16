@@ -2,9 +2,9 @@
   <div class="users">
     <div
       class="user"
-      @click="handleProfileClick($event, t.id, t)"
       v-for="t in users"
       :key="t"
+      @click="handleProfileClick($event, t.id, t)"
     >
       <div class="user-avatar">
         <img class="avatar" :src="`https://github.com/Aleksei-Kibardin/users/blob/master/src/assets/${sex()}.png?raw=true`" alt="avatar" />
@@ -22,14 +22,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import {useRouter} from "vue-router"
 
 const router = useRouter();
 const store = useStore();
 
-const users = ref(store.state.users);
+const users = computed(() => store.state.users);
 
 // тк пол не указывается в юзере, просто присваиваем рандомный
 const sex = () => Math.floor(Math.random() * (1 - 3) + 3);

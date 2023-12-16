@@ -33,6 +33,7 @@ async function loadUsers() {
     } else {
         const localUser = JSON.parse(localUserJSON);
         store.commit('uploadUsers', localUser);
+        console.log(store.state.users);
         console.log(localUser);
     }
 }
