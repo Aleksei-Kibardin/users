@@ -2,7 +2,7 @@
   <div>
     <header>
       <nav class="nav">
-        <a class="back" href="/" v-if="$route.path !== '/'">Back</a>
+        <a class="back" href="/users/#/" v-if="$route.path !== '/'">Back</a>
         <h1 class="page-name">{{ $route.name }}</h1>
         <search-users v-if="$route.path === '/'"></search-users>
       </nav>
