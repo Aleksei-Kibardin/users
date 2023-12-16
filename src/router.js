@@ -24,6 +24,7 @@ export default createRouter({
           component: () => import("./components/Posts.vue"),
         },
       ],
+      redirect: { name: 'Posts' } 
     },
   ],
 });
