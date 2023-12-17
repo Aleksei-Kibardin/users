@@ -27,9 +27,10 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { onMounted, watch, computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute  } from "vue-router";
+import { getPosts } from "../api";
 
 const store = useStore();
 const route = useRoute();
@@ -41,6 +42,25 @@ const userId = computed(() => {
 
 store.commit("uploadUser", userId);
 
+const loadAndSavePosts = async (id) => {
+  const postsFromApi = await getPosts(id);
+  store.commit('uploadPosts', postsFromApi);
+}
+
+
+onMounted(() => {
+  loadAndSavePosts(route.params.id);
+});
+
+// Отслеживаем изменения ID
+watch(
+  () => route.params.id,
+  (newId, oldId) => {
+    if (newId !== oldId) {
+      loadAndSavePosts(newId);
+    }
+  }
+);
 
 </script>
 

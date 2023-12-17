@@ -11,7 +11,7 @@
     <div
       v-show="stateEdit.active === false"
       class="post"
-      v-for="t in posts"
+      v-for="t in posts.reverse()"
       :key="t"
     >
       <svg
@@ -64,6 +64,8 @@
             stateEdit.active = false;
             stateEdit.status = '';
             addPost(title, body);
+            title = null;
+            body = null;
           "
         > add
         </div>
@@ -73,6 +75,8 @@
             stateEdit.active = false;
             stateEdit.status = '';
             editPost(stateEdit.id, title, body);
+            title = null;
+            body = null;
           "
         >
           save
@@ -83,16 +87,15 @@
 </template>
 
 <script setup>
-import { onMounted, watch, ref } from "vue";
+import {  ref, computed } from "vue";
 import { useStore } from "vuex";
-import { getPosts } from "../api";
 import { useRoute } from "vue-router";
 
 const store = useStore();
 const route = useRoute();
 
 const id = route.params.id;
-const posts = ref(store.state.posts);
+const posts = computed(() => store.state.posts);
 const title = ref();
 const body = ref();
 const stateEdit = ref({
@@ -128,27 +131,6 @@ const editPost = async (postId, t, b) => {
   console.log(store.state.posts);
 };
 
-const loadAndSavePosts = async (id) => {
-  const postsFromApi = await getPosts(id);
-  store.commit('uploadPosts', postsFromApi);
-  posts.value = store.state.posts
-  console.log(posts.value);
-}
-
-
-onMounted(() => {
-  loadAndSavePosts(id);
-});
-
-// Отслеживаем изменения ID
-watch(
-  () => route.params.id,
-  (newId, oldId) => {
-    if (newId !== oldId) {
-      loadAndSavePosts(newId);
-    }
-  }
-);
 console.log(posts.value);
 </script>
 
