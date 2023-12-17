@@ -18,9 +18,9 @@
         <div class="user-email">Email: {{ userId.email }}</div>
       </div>
     </div>
-    <nav class="page-content">
-      <div :class="{ active: $route.name === 'Albums' }" @click="$router.push({ name: 'Albums', params: { } })">Albums</div>
-      <div :class="{ active: $route.name === 'Posts' }" @click="$router.push({ name: 'Posts', params: { } })">Posts</div>
+    <nav class="page-list">
+      <div class="page" :class="{ active: $route.name === 'Posts' }" @click="$router.push({ name: 'Posts', params: { } })">Posts</div>
+      <div class="page" :class="{ active: $route.name === 'Albums' }" @click="$router.push({ name: 'Albums', params: { } })">Albums</div>
     </nav>
     <router-view></router-view>
   </div>
@@ -62,7 +62,7 @@ store.commit("uploadUser", userId);
   }
 }
 .user-head {
-  @include fluid("padding", 40);
+  @include fluid("padding", 60);
   @include fluid("gap", 10);
   display: flex;
   background-color: rgb(22, 27, 34);
@@ -103,7 +103,7 @@ store.commit("uploadUser", userId);
 .contact{
   @include fluid("margin-top", 80);
 }
-.page-content{
+.page-list{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,10 +112,12 @@ store.commit("uploadUser", userId);
   @include fluid("height", 50);
   background-color: #24292f;
   border-radius: 20px;
-  color: #97999b;
   @include fluid("font-size", 20);
 }
-.active{
+.page{
   color: #97999b;
+}
+.active{
+  color: #fff;
 }
 </style>
