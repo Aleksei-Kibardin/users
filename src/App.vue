@@ -29,14 +29,13 @@ async function loadUsers() {
         const usersFromApi = await getUsers();
         localStorage.setItem('user-list', JSON.stringify(usersFromApi)); 
         store.commit('uploadUsers', usersFromApi);
-        console.log(store.state.users);
     } else {
         const localUser = JSON.parse(localUserJSON);
         store.commit('uploadUsers', localUser);
         console.log(store.state.users);
-        console.log(localUser);
     }
 }
+
 
 onMounted(() => {
     loadUsers().catch(error => console.error('Failed to load users:', error));
