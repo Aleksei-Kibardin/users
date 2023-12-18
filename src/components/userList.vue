@@ -29,7 +29,7 @@ import {useRouter} from "vue-router"
 const router = useRouter();
 const store = useStore();
 
-const search = computed(() => store.state.searchValue);
+// const search = computed(() => store.state.searchValue);
 
 
 const users = computed(() => store.state.search);
@@ -43,10 +43,10 @@ const handleProfileClick = (event, id) => {
 
     router.push({ name: 'Profile', params: { id: id, sex: currentSrc} });
   };
-  watch(() => search.value, () => {
-  store.commit('uploadSearch', users.filter(item => item.username.includes(search.value)));
+//   watch(() => search.value, () => {
+//   store.commit('uploadSearch', users.filter(item => item.username.includes(search.value)));
   
-});
+// });
 </script>
 
 <style lang="scss" scoped>
