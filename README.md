@@ -8,3 +8,4 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 
 скомпилированный сайт: https://aleksei-kibardin.github.io/users/#/
+я наделал милиард коммитов тк пытался понять почему при добавление v-model gh-pages начинает терять какие-то ссылки
