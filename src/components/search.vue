@@ -1,6 +1,6 @@
 <template>
   <form class="search-users">
-    <input v-model="search" class="search-users" type="text" placeholder="Search by nickname..." />
+    <input v-model.lazy="search" class="search-users" type="text" placeholder="Search by nickname..." />
   </form>
 </template>
 
@@ -13,9 +13,8 @@ const search = ref("");
 
 watch(() => search.value, () => {
   if (search.value !== "") {
-    store.commit('uploadSearch', store.state.users.filter(item => item.username === search.value));
-  }
-  else{
+    store.commit('uploadSearch', store.state.users.filter(item => item.username.includes(search.value)));
+  } else {
     store.commit('uploadSearch', store.state.users);
   }
 });
