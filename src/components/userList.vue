@@ -33,7 +33,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const store = useStore();
 
-const search = computed(() => store.state.searchValue);
+// const search = computed(() => store.state.searchValue);
 
 const users = computed(() =>
 store.state.users
