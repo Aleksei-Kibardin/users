@@ -4,13 +4,6 @@
       <nav class="nav">
         <a class="back" href="/users/#/" v-if="$route.path !== '/'">Back</a>
         <h1 class="page-name">{{ $route.name }}</h1>
-        <form class="search-users">
-    <input
-
-      type="text"
-      placeholder="Search by nickname..."
-    />
-  </form>
       </nav>
     </header>
     <main>
