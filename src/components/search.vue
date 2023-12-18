@@ -1,23 +1,10 @@
 <template>
   <form class="search-users">
-    <input v-model.lazy="search" class="search-users" type="text" placeholder="Search by nickname..." />
+    <input class="search-users" type="text" placeholder="Search by nickname..." />
   </form>
 </template>
 
-<script setup>
-import { ref, watch } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
-const search = ref("");
-
-watch(() => search.value, () => {
-  if (search.value !== "") {
-    store.commit('uploadSearch', store.state.users.filter(item => item.username.includes(search.value)));
-  } else {
-    store.commit('uploadSearch', store.state.users);
-  }
-});
+<script>
 </script>
 
 <style lang="scss">

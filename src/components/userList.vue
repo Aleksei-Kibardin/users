@@ -24,14 +24,12 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router"
+import {useRouter} from "vue-router"
 
 const router = useRouter();
 const store = useStore();
 
-const users = computed(() => store.state.search);
-
-store.commit('uploadSearch', store.state.users);
+const users = computed(() => store.state.users);
 
 // тк пол не указывается в юзере, просто присваиваем рандомный
 const sex = () => Math.floor(Math.random() * (1 - 3) + 3);
@@ -42,8 +40,6 @@ const handleProfileClick = (event, id) => {
 
     router.push({ name: 'Profile', params: { id: id, sex: currentSrc} });
   };
-  
-console.log(store.state.search);
 </script>
 
 <style lang="scss" scoped>
