@@ -1,7 +1,8 @@
 <template>
   <form class="search-users">
     <input
-      
+      :value="search"
+      @input="search = $event.target.value; console.log(search)"
       class="search-users"
       type="text"
       placeholder="Search by nickname..."
@@ -10,8 +11,9 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 
-
+const search = ref("")
 </script>
 
 <style lang="scss">
