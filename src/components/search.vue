@@ -2,8 +2,7 @@
   <form class="search-users">
     <input
       :value="search"
-      @input="search = $event.target.value; console.log(search)"
-      class="search-users"
+      @input="search = $event.target.value; store.commit('uploadsearchValue', search);"
       type="text"
       placeholder="Search by nickname..."
     />
