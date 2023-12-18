@@ -6,8 +6,7 @@
         <h1 class="page-name">{{ $route.name }}</h1>
         <form class="search-users">
     <input
-      :value="search"
-      @input="search = $event.target.value; store.commit('uploadsearchValue', search);"
+
       type="text"
       placeholder="Search by nickname..."
     />
