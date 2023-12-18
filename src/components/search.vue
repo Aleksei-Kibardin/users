@@ -1,10 +1,24 @@
 <template>
   <form class="search-users">
-    <input class="search-users" type="text" placeholder="Search by nickname..." />
+    <input v-model="search" class="search-users" type="text" placeholder="Search by nickname..." />
   </form>
 </template>
 
-<script>
+<script setup>
+import { ref, watch } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const search = ref("");
+
+watch(() => search.value, () => {
+  if (search.value !== "") {
+    store.commit('uploadSearch', store.state.users.filter(item => item.username === search.value));
+  }
+  else{
+    store.commit('uploadSearch', store.state.users);
+  }
+});
 </script>
 
 <style lang="scss">

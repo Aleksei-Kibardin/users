@@ -24,6 +24,9 @@ const store = createStore({
     uploadUser(state, newState) {
       state.currentUser = newState;
     },
+    uploadSearch(state, newState) {
+      state.search = newState;
+    },
   },
   actions: {
     async addPost({ commit, state }, newPost) {
