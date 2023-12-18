@@ -29,7 +29,7 @@ import {useRouter} from "vue-router"
 const router = useRouter();
 const store = useStore();
 
-const users = computed(() => store.state.users);
+const users = computed(() => store.state.search);
 
 // тк пол не указывается в юзере, просто присваиваем рандомный
 const sex = () => Math.floor(Math.random() * (1 - 3) + 3);

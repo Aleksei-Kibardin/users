@@ -29,9 +29,11 @@ async function loadUsers() {
         const usersFromApi = await getUsers();
         localStorage.setItem('user-list', JSON.stringify(usersFromApi)); 
         store.commit('uploadUsers', usersFromApi);
+        store.commit('uploadSearch', usersFromApi);
     } else {
         const localUser = JSON.parse(localUserJSON);
         store.commit('uploadUsers', localUser);
+        store.commit('uploadSearch', localUser);
         console.log(store.state.users);
     }
 }
