@@ -22,11 +22,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, } from 'vue';
 import { useStore } from 'vuex';
 import { getUsers } from './api';
-
-const search = ref("")
 
 const store = useStore();
 
