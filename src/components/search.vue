@@ -12,12 +12,11 @@ const store = useStore();
 const search = ref("");
 
 watch(() => search.value, () => {
-  if (search.value !== "") {
-    store.commit('uploadSearch', store.state.users.filter(item => item.username.includes(search.value)));
-  } else {
-    store.commit('uploadSearch', store.state.users);
-  }
+  store.commit('uploadsearchValue', search.value);
 });
+
+
+
 </script>
 
 <style lang="scss">

@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 const store = createStore({
   state() {
     return {
+      searchValue: '',
       users: [],
       posts: [],
       photos: [],
@@ -26,6 +27,9 @@ const store = createStore({
     },
     uploadSearch(state, newState) {
       state.search = newState;
+    },
+    uploadsearchValue(state, newState) {
+      state.searchValue = newState;
     },
   },
   actions: {

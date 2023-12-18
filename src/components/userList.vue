@@ -22,12 +22,15 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useStore } from "vuex";
 import {useRouter} from "vue-router"
 
 const router = useRouter();
 const store = useStore();
+
+const search = computed(() => store.state.searchValue);
+
 
 const users = computed(() => store.state.search);
 
@@ -40,6 +43,13 @@ const handleProfileClick = (event, id) => {
 
     router.push({ name: 'Profile', params: { id: id, sex: currentSrc} });
   };
+  watch(() => search.value, () => {
+  if (search.value !== "") {
+    store.commit('uploadSearch', store.state.users.filter(item => item.username.includes(search.value)));
+  } else {
+    store.commit('uploadSearch', store.state.users);
+  }
+});
 </script>
 
 <style lang="scss" scoped>
