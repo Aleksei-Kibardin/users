@@ -7,7 +7,11 @@
       @click="handleProfileClick($event, t.id, t)"
     >
       <div class="user-avatar">
-        <img class="avatar" :src="`https://github.com/Aleksei-Kibardin/users/blob/master/src/assets/${sex()}.png?raw=true`" alt="avatar" />
+        <img
+          class="avatar"
+          :src="`https://github.com/Aleksei-Kibardin/users/blob/master/src/assets/${sex()}.png?raw=true`"
+          alt="avatar"
+        />
       </div>
       <div class="user-info_wrap">
         <div class="user-name">
@@ -24,29 +28,26 @@
 <script setup>
 import { computed, watch } from "vue";
 import { useStore } from "vuex";
-import {useRouter} from "vue-router"
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 const store = useStore();
 
-// const search = computed(() => store.state.searchValue);
+const search = computed(() => store.state.searchValue);
 
-
-const users = computed(() => store.state.search);
+const users = computed(() =>
+  store.state.users.filter((item) => item.username.includes(search.value))
+);
 
 // тк пол не указывается в юзере, просто присваиваем рандомный
 const sex = () => Math.floor(Math.random() * (1 - 3) + 3);
 
 const handleProfileClick = (event, id) => {
   // чтобы не тратить время, и не обновлять обьекты, я просто передаю аватар в урле
-    const currentSrc = event.currentTarget.querySelector('.avatar').currentSrc;
+  const currentSrc = event.currentTarget.querySelector(".avatar").currentSrc;
 
-    router.push({ name: 'Profile', params: { id: id, sex: currentSrc} });
-  };
-//   watch(() => search.value, () => {
-//   store.commit('uploadSearch', users.filter(item => item.username.includes(search.value)));
-  
-// });
+  router.push({ name: "Profile", params: { id: id, sex: currentSrc } });
+};
 </script>
 
 <style lang="scss" scoped>

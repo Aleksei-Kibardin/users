@@ -7,7 +7,6 @@ const store = createStore({
       users: [],
       posts: [],
       photos: [],
-      search: [],
       currentUser: {},
       oldId: null
     };
@@ -24,9 +23,6 @@ const store = createStore({
     },
     uploadUser(state, newState) {
       state.currentUser = newState;
-    },
-    uploadSearch(state, newState) {
-      state.search = newState;
     },
     uploadsearchValue(state, newState) {
       state.searchValue = newState;

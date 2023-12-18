@@ -11,9 +11,9 @@ import { useStore } from "vuex";
 const store = useStore();
 const search = ref("");
 
-// watch(() => search.value, () => {
-//   store.commit('uploadsearchValue', search.value);
-// });
+watch(() => search.value, () => {
+  store.commit('uploadsearchValue', search.value);
+});
 
 
 
