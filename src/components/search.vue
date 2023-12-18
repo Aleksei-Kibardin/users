@@ -1,26 +1,25 @@
 <template>
   <form class="search-users">
-    <input v-model="search" class="search-users" type="text" placeholder="Search by nickname..." />
+    <input
+      v-model="search"
+      class="search-users"
+      type="text"
+      placeholder="Search by nickname..."
+    />
   </form>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-const search = ref("");
-
-watch(() => search.value, () => {
-  store.commit('uploadsearchValue', search.value);
-});
-
-
+const search = ref()
 
 </script>
 
 <style lang="scss">
-@import '../css/fluid.sass';
+@import "../css/fluid.sass";
 .search-users {
   width: auto;
   float: right;
