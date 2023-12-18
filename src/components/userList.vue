@@ -44,10 +44,11 @@ const handleProfileClick = (event, id) => {
     router.push({ name: 'Profile', params: { id: id, sex: currentSrc} });
   };
   watch(() => search.value, () => {
+  const value = store.state.users
   if (search.value !== "") {
-    store.commit('uploadSearch', store.state.users.filter(item => item.username.includes(search.value)));
+    store.commit('uploadSearch', value.filter(item => item.username.includes(search.value)));
   } else {
-    store.commit('uploadSearch', store.state.users);
+    store.commit('uploadSearch', value);
   }
 });
 </script>
