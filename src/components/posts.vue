@@ -11,7 +11,7 @@
     <div
       v-show="stateEdit.active === false"
       class="post"
-      v-for="t in posts.reverse()"
+      v-for="t in posts"
       :key="t"
     >
       <svg
