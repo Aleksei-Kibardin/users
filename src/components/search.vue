@@ -1,7 +1,7 @@
 <template>
   <form class="search-users">
     <input
-      v-model="search"
+      
       class="search-users"
       type="text"
       placeholder="Search by nickname..."
@@ -10,9 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 
-const search = ref()
 
 </script>
 
