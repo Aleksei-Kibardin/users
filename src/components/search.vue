@@ -12,7 +12,7 @@ const store = useStore();
 const search = ref("");
 
 watch(() => search.value, () => {
-  store.commit('uploadsearchValue', store.state.searchValue);
+  store.commit('uploadsearchValue', search.value);
 });
 
 
