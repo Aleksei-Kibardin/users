@@ -4,6 +4,7 @@
       <nav class="nav">
         <a class="back" href="/users/#/" v-if="$route.path !== '/'">Back</a>
         <h1 class="page-name">{{ $route.name }}</h1>
+        <search-users v-if="$route.path === '/'"></search-users>
       </nav>
     </header>
     <main>
@@ -15,10 +16,10 @@
 </template>
 
 <script setup>
-import { onMounted, } from 'vue';
+import { onMounted} from 'vue';
 import { useStore } from 'vuex';
 import { getUsers } from './api';
-
+import searchUsers from './components/search.vue';
 const store = useStore();
 
 async function loadUsers() {
