@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { computed, watch } from "vue";
+import { computed} from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -36,7 +36,7 @@ const store = useStore();
 const search = computed(() => store.state.searchValue);
 
 const users = computed(() =>
-  store.state.users.filter((item) => item.username.includes(search.value))
+store.state.users
 );
 
 // тк пол не указывается в юзере, просто присваиваем рандомный
